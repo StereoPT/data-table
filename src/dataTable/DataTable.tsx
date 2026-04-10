@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Table,
   TableBody,
@@ -7,9 +9,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { DataTableControls } from "@/dataTable/DataTableControls";
-import type { Filter } from "@/dataTable/filters/DataTableFilter";
 import { DataTablePagination } from "@/dataTable/pagination/DataTablePagination";
 import { fuzzyFilterFn } from "@/lib/search";
+import type { DataTableConfig } from "@/types/dataTable";
 
 import {
   type ColumnDef,
@@ -22,25 +24,10 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-type Search<TData> = {
-  filterFields: (keyof TData)[];
-  placeholder: string;
-};
-
-type Filters<TData> = Filter<TData>[];
-
-type ColumnVisibility<TData> = {
-  [K in keyof TData]?: boolean;
-} & Record<string, boolean>;
-
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  config?: {
-    search?: Search<TData>;
-    filters?: Filters<TData>;
-    columnVisibility?: ColumnVisibility<TData>;
-  };
+  config?: DataTableConfig<TData>;
 }
 
 export function DataTable<TData, TValue>({

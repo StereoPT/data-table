@@ -1,17 +1,14 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
-import {
-  DataTableFilter,
-  type Filter,
-} from "@/dataTable/filters/DataTableFilter";
+import { DataTableFilter } from "@/dataTable/filters/DataTableFilter";
+import type { Filters, Search } from "@/types/dataTable";
 import type { Table } from "@tanstack/react-table";
 
 interface DataTableFiltersProps<TData> {
   table: Table<TData>;
-  search?: {
-    filterFields: (keyof TData)[];
-    placeholder: string;
-  };
-  filters?: Filter<TData>[];
+  search?: Search<TData>;
+  filters?: Filters<TData>;
 }
 
 export const DataTableControls = <TData,>({

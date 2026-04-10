@@ -1,11 +1,7 @@
 import { DateFilter } from "@/dataTable/filters/DateFilter";
 import { SelectFilter } from "@/dataTable/filters/SelectFilter";
+import type { Filter } from "@/types/dataTable";
 import type { Table } from "@tanstack/react-table";
-
-export type Filter<TData> = {
-  column: keyof TData;
-  type: "select" | "date";
-};
 
 type DataTableFilterProps<TData> = {
   table: Table<TData>;
