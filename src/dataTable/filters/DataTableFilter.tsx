@@ -1,3 +1,4 @@
+import { SelectFilter } from "@/dataTable/filters/SelectFilter";
 import type { Table } from "@tanstack/react-table";
 
 export type Filter<TData> = {
@@ -16,8 +17,7 @@ export const DataTableFilter = <TData,>({
 }: DataTableFilterProps<TData>) => {
   switch (filter.type) {
     case "select": {
-      return <pre>"Select Filter not implemented yet"</pre>;
-      // return <SelectFilter column={filter.column} table={table} />;
+      return <SelectFilter column={filter.column} table={table} />;
     }
     case "date": {
       return <pre>"Date Filter not implemented yet"</pre>;
