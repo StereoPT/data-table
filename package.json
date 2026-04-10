@@ -1,6 +1,6 @@
 {
   "name": "@stereopt/data-table",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Simple reusable React data table component",
   "type": "module",
   "main": "./dist/index.cjs",
