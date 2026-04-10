@@ -23,9 +23,9 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react,react-dom && postcss src/styles/globals.css -o dist/styles.css --minify",
+    "build": "tsup",
     "clean": "rm -rf dist",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react,react-dom",
+    "dev": "tsup --watch",
     "format": "biome format ./src",
     "format:fix": "biome format ./src --write",
     "lint": "biome lint ./src && next lint",
