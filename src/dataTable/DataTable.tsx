@@ -3,6 +3,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { Table, TableHeader } from "../components/ui/table";
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -17,11 +18,17 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   });
 
   return (
-    <div>
+    <div className="w-full">
       {/* TODO: Add Filters */}
-      <div>
-        <pre>{JSON.stringify(table, null, 2)}</pre>
+      <div className="rounded-md border overflow-hidden bg-red-500">
+        <Table>
+          <TableHeader>
+            Header Here
+          </TableHeader>
+          <pre>{JSON.stringify(table, null, 2)}</pre>
+        </Table>
       </div>
+      {/* TODO: Add Pagination */}
     </div>
   );
 }

@@ -12,6 +12,9 @@
     "jsx": "react-jsx",
     "target": "es2023",
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"]
 }
