@@ -6,6 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { DataTablePagination } from "@/dataTable/pagination/DataTablePagination";
 
 import {
   type ColumnDef,
@@ -106,7 +107,7 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      {/* TODO: Add Pagination */}
+      <DataTablePagination table={table} />
     </div>
   );
 }
