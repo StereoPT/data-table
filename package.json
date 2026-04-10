@@ -1,0 +1,54 @@
+{
+  "name": "@stereopt/data-table",
+  "version": "0.1.0",
+  "description": "Simple reusable React data table component",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react,react-dom",
+    "clean": "rm -rf dist",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react,react-dom",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "react",
+    "table",
+    "data-table",
+    "component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StereoPT/data-table.git"
+  },
+  "homepage": "https://github.com/StereoPT/data-table#readme",
+  "bugs": {
+    "url": "https://github.com/StereoPT/data-table/issues"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}
