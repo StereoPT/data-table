@@ -18,14 +18,22 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+type ColumnVisibility<TData> = {
+  [K in keyof TData]?: boolean;
+} & Record<string, boolean>;
+
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  config?: {
+    columnVisibility?: ColumnVisibility<TData>;
+  };
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  config,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -36,6 +44,9 @@ export function DataTable<TData, TValue>({
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
     autoResetPageIndex: false,
+    initialState: {
+      columnVisibility: config?.columnVisibility,
+    },
   });
 
   return (
