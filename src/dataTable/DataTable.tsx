@@ -3,7 +3,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { Table, TableHeader } from "../components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table";
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -23,9 +23,15 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
       <div className="rounded-md border overflow-hidden bg-red-500">
         <Table>
           <TableHeader>
-            Header Here
+            <TableRow>
+              <TableHead>Head</TableHead>
+            </TableRow>
           </TableHeader>
-          <pre>{JSON.stringify(table, null, 2)}</pre>
+          <TableBody>
+            <TableRow>
+              <TableCell>Cell</TableCell>
+            </TableRow>
+          </TableBody>
         </Table>
       </div>
       {/* TODO: Add Pagination */}
