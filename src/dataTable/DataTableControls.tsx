@@ -1,5 +1,8 @@
 import { Input } from "@/components/ui/input";
-import type { Filter } from "@/dataTable/filters/DataTableFilter";
+import {
+  DataTableFilter,
+  type Filter,
+} from "@/dataTable/filters/DataTableFilter";
 import type { Table } from "@tanstack/react-table";
 
 interface DataTableFiltersProps<TData> {
@@ -19,7 +22,7 @@ export const DataTableControls = <TData,>({
   const value = table.getState().globalFilter ?? "";
   const setValue = table.setGlobalFilter;
 
-  if (!filters || !search) return null;
+  if (!filters && !search) return null;
 
   return (
     <div className="flex items-center gap-4 pb-4">
@@ -33,12 +36,13 @@ export const DataTableControls = <TData,>({
       )}
 
       {filters?.map((filter) => {
-        return null;
-        // <DataTableFilter
-        //   filter={filter}
-        //   key={filter.column.toString()}
-        //   table={table}
-        // />
+        return (
+          <DataTableFilter
+            filter={filter}
+            key={filter.column.toString()}
+            table={table}
+          />
+        );
       })}
     </div>
   );

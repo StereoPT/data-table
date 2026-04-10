@@ -70,6 +70,7 @@ export function DataTable<TData, TValue>({
         search={config?.search}
         table={table}
       />
+
       <div className="rounded-md border overflow-hidden">
         <Table>
           <TableHeader className="bg-muted">
@@ -124,6 +125,7 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
+
       <DataTablePagination table={table} />
     </div>
   );
