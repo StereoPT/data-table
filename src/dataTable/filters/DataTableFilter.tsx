@@ -1,3 +1,4 @@
+import { DateFilter } from "@/dataTable/filters/DateFilter";
 import { SelectFilter } from "@/dataTable/filters/SelectFilter";
 import type { Table } from "@tanstack/react-table";
 
@@ -20,8 +21,7 @@ export const DataTableFilter = <TData,>({
       return <SelectFilter column={filter.column} table={table} />;
     }
     case "date": {
-      return <pre>"Date Filter not implemented yet"</pre>;
-      // return <DateFilter column={filter.column} table={table} />;
+      return <DateFilter column={filter.column} table={table} />;
     }
     default:
       throw new Error(`Type not Implemented: ${filter.type}`);

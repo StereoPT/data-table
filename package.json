@@ -48,9 +48,15 @@
     "url": "https://github.com/StereoPT/data-table/issues"
   },
   "license": "MIT",
-  "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "@tanstack/match-sorter-utils": "^8.19.4",
+    "@tanstack/react-table": "^8.21.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "postcss": "^8.5.9",
+    "react-day-picker": "^9.13.2",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.2",
@@ -63,13 +69,8 @@
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.2.2",
-    "@tanstack/match-sorter-utils": "^8.19.4",
-    "@tanstack/react-table": "^8.21.3",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "postcss": "^8.5.9",
-    "tailwind-merge": "^3.5.0"
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
