@@ -26,11 +26,16 @@ npm run dev
 
 ```tsx
 import { DataTable } from '@stereopt/data-table';
+import '@stereopt/data-table/styles.css';
 
 export function Example() {
   return <DataTable />;
 }
 ```
+
+The package stylesheet ships the component utilities only. It does not include Tailwind preflight, so it will not reset the consuming application's global styles.
+
+The components also inherit the host application's theme automatically when the app exposes common semantic CSS variables such as `--background`, `--foreground`, `--primary`, `--muted`, `--border`, and related tokens. If needed, you can override the library specifically with the prefixed variables `--st-dt-*`.
 
 ## GitHub repository
 
