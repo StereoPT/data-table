@@ -26,6 +26,10 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --external react,react-dom && postcss src/styles/globals.css -o dist/styles.css --minify",
     "clean": "rm -rf dist",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react,react-dom",
+    "format": "biome format ./src",
+    "format:fix": "biome format ./src --write",
+    "lint": "biome lint ./src && next lint",
+    "lint:fix": "biome lint ./src --write && next lint",
     "prepare": "npm run clean && npm run build",
     "prepublishOnly": "npm run clean && npm run build"
   },
@@ -49,6 +53,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "postcss-cli": "^11.0.1",
