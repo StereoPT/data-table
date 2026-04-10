@@ -24,6 +24,7 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --external react,react-dom",
     "clean": "rm -rf dist",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react,react-dom",
+    "prepare": "npm run clean && npm run build",
     "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [
