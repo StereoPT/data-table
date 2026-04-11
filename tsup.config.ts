@@ -6,5 +6,6 @@ export default defineConfig({
   dts: true,
   external: ["react", "react-dom"],
   clean: true,
-  onSuccess: "node scripts/build-css.mjs",
+  onSuccess:
+    "postcss src/styles/globals.css -o dist/styles.css && cp src/styles/tailwind-source.css dist/tailwind-source.css",
 });

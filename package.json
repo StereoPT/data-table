@@ -13,7 +13,8 @@
       "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./tailwind-source.css": "./dist/tailwind-source.css"
   },
   "files": [
     "dist"

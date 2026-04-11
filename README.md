@@ -37,6 +37,21 @@ The package stylesheet ships the component utilities only. It does not include T
 
 The components also inherit the host application's theme automatically when the app exposes common semantic CSS variables such as `--background`, `--foreground`, `--primary`, `--muted`, `--border`, and related tokens. If needed, you can override the library specifically with the prefixed variables `--st-dt-*`.
 
+## Tailwind Configuration
+
+Since the package uses Tailwind CSS, your consumer application must configure Tailwind to scan the package files so it generates the required utility classes.
+
+### Tailwind v4 (CSS-first)
+
+In your global CSS file:
+
+```css
+@import "tailwindcss";
+@import "@stereopt/data-table/tailwind-source.css";
+```
+
+That's it! The `tailwind-source.css` file contains the `@source` directive that tells Tailwind where to scan for the component classes.
+
 ## GitHub repository
 
 Repository: https://github.com/StereoPT/data-table

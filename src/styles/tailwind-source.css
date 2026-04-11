@@ -1,0 +1,11 @@
+/**
+ * Tailwind v4 source scanning for @stereopt/data-table
+ * 
+ * Import this in your global CSS after @import "tailwindcss"
+ * so Tailwind will scan and generate utilities for the data-table components.
+ * 
+ * @example
+ * @import "tailwindcss";
+ * @import "@stereopt/data-table/tailwind-source.css";
+ */
+@source "../dist/**/*.{js,mjs,cjs}";
