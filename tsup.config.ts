@@ -6,5 +6,5 @@ export default defineConfig({
   dts: true,
   external: ["react", "react-dom"],
   clean: true,
-  onSuccess: "postcss src/styles/globals.css -o dist/styles.css --minify",
+  onSuccess: "node scripts/build-css.mjs",
 });
