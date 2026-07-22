@@ -6,7 +6,8 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": ["**", "!src/components/ui"]
   },
   "formatter": {
     "enabled": true,
@@ -45,6 +46,11 @@
     }
   },
   "css": {
+    "parser": {
+      "cssModules": false,
+      "allowWrongLineComments": false,
+      "tailwindDirectives": true
+    },
     "formatter": {
       "quoteStyle": "single",
       "indentStyle": "space"
