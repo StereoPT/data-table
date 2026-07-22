@@ -14,12 +14,16 @@ export const DataTableFilter = <TData,>({
 }: DataTableFilterProps<TData>) => {
   switch (filter.type) {
     case "select": {
-      return <SelectFilter column={filter.column} table={table} />;
+      return (
+        <SelectFilter
+          column={filter.column}
+          options={filter.options}
+          table={table}
+        />
+      );
     }
     case "date": {
       return <DateFilter column={filter.column} table={table} />;
     }
-    default:
-      throw new Error(`Type not Implemented: ${filter.type}`);
   }
 };

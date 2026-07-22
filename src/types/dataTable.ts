@@ -1,11 +1,22 @@
+export type SelectFilter<TData> = {
+  column: keyof TData;
+  type: "select";
+  options?: {
+    label: string;
+    value: string;
+  }[];
+};
+
+export type DateFilter<TData> = {
+  column: keyof TData;
+  type: "date";
+};
+
+export type Filter<TData> = SelectFilter<TData> | DateFilter<TData>;
+
 export type Search<TData> = {
   filterFields: (keyof TData)[];
   placeholder: string;
-};
-
-export type Filter<TData> = {
-  column: keyof TData;
-  type: "select" | "date";
 };
 
 export type Filters<TData> = Filter<TData>[];

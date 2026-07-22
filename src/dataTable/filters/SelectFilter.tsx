@@ -12,20 +12,34 @@ import { ChevronDown } from "lucide-react";
 type SelectFilterProps<TData> = {
   column: keyof TData;
   table: Table<TData>;
+  options?: {
+    label: string;
+    value: string;
+  }[];
 };
 
 export const SelectFilter = <TData,>({
   column,
   table,
+  options,
 }: SelectFilterProps<TData>) => {
   const columnDef = table.getColumn(column as string);
+  const columnHeader = columnDef?.columnDef.header;
+  const headerText =
+    typeof columnHeader === "string" ? columnHeader : column.toString();
   const facetedValues = columnDef?.getFacetedUniqueValues();
-  const possibleValues = Array.from(facetedValues?.keys() || []) as string[];
+  const facetedOptions = Array.from(facetedValues?.keys() || []).map(
+    (value) => ({ label: value, value }) as { label: string; value: string },
+  );
+  const possibleValues = options ?? facetedOptions;
 
-  const hasFilter = columnDef?.getFilterValue();
-  const filterText = hasFilter
-    ? (columnDef?.getFilterValue() as string).toLowerCase()
-    : column.toString();
+  const filterValue = columnDef?.getFilterValue() as string | undefined;
+  const selectedOption = possibleValues.find(
+    (option) => option.value === filterValue,
+  );
+  const filterText = selectedOption
+    ? selectedOption.label.toLowerCase()
+    : headerText;
 
   const handleOnChange = (option: string) => {
     if (columnDef?.getFilterValue() === option) {
@@ -46,17 +60,17 @@ export const SelectFilter = <TData,>({
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel className="px-2 py-1.5 text-xs text-muted-foreground capitalize">
-          {column.toString()}
+          {headerText}
         </DropdownMenuLabel>
         {possibleValues.map((option) => {
           return (
             <DropdownMenuCheckboxItem
-              checked={columnDef?.getFilterValue() === option}
+              checked={columnDef?.getFilterValue() === option.value}
               className="capitalize"
-              key={option}
-              onCheckedChange={() => handleOnChange(option)}
+              key={option.value}
+              onCheckedChange={() => handleOnChange(option.value)}
             >
-              {option.toLowerCase()}
+              {option.label.toLowerCase()}
             </DropdownMenuCheckboxItem>
           );
         })}
