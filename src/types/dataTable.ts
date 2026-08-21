@@ -29,4 +29,5 @@ export type DataTableConfig<TData> = {
   search?: Search<TData>;
   filters?: Filters<TData>;
   columnVisibility?: ColumnVisibility<TData>;
+  groupBy?: keyof TData;
 };
